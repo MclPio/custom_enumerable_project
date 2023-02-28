@@ -121,3 +121,13 @@ class Array
     end
   end
 end
+
+class Hash
+  def my_each
+    return to_enum(:my_each) unless block_given?
+
+    for key, value in self
+      yield(key, value)
+    end
+  end
+end
